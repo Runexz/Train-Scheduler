@@ -67,26 +67,39 @@
         </div>
         <div class="container border border-primary">
             <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
+                <div class="form-group mt-2">
+                    <label for="trainName">Train Name</label>
+                    <input type="text" class="form-control" id="addTrainName" placeholder="Enter a Train Name">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <div class="form-group mt-2">
+                    <label for="destinationName">Destination</label>
+                    <input type="text" class="form-control" id="addDestination" placeholder="Enter a Destination">
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="form-group mt-2">
+                    <label for="trainTime">First Train Time (HH:mm - military time)</label>
+                    <input type="time" class="form-control" id="addTrainTime">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group mt-2">
+                    <label for="frequencyTime">Frequency (min)</label>
+                    <input type="text" class="form-control" id="addFrequency" placeholder="Enter a frequency">
+                </div>
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
             </form>
         </div>
     </div>
 
+    <!-- create footer for the bottom of the page -->
+    <footer class="mt-3 text-center">
+        <div class="card">
+            <div class="card-header">
+                R.Rodriguez
+            </div>
+            <div class="card-body">
+                <p class="card-text">&copy; 2019</p>
+            </div>
+        </div>
+
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
