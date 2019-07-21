@@ -53,7 +53,7 @@ $("#addInfo").on("click", function (event) {
 
 // at initial load and subsequent value chages, get a snapshot of the stored data
 // function to update page in real-time when the firebase database changes
-database.ref().on("value", function(snapshot) {
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
     // if any error are experiencced log them to console
     //  function(errorObject) {
