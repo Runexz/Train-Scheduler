@@ -63,8 +63,8 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
     //use moment.js for time conversion
 // unable to use moment will wait for TA assistance
-    // var currentTime = moment();
-    // console.log("The time now is: " + moment(currentTime).format("hh:mm a"));
+    var currentTime = moment();
+    console.log("The time now is: " + moment(currentTime).format("hh:mm A"));
 
     //put train information into html id updateInfo
     $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td>");
