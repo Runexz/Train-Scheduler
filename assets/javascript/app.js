@@ -32,14 +32,22 @@ $("#addInfo").on("click", function (event) {
     var trainTimeEntry = parseInt($("#addTrainTime").val().trim());
     var trainFrequencyEntry = parseInt($("#addFrequency").val().trim());
 
-    // save the new input entries in Firebase.  
-    database.ref().set({
+    // save the new input in a variable and push entries in Firebase.  
+    var trainContent = {
         trainName: trainNameEntry,
         trainDestination: trainDestinationEntry,
         trainTime: trainTimeEntry,
         trainFrequency: trainFrequencyEntry
-    });
-    console.log("Train name " + data.trainName)
+    }
+    database.ref().push(trainContent);
+    console.log("Train name " + trainContent.trainName);
+
+    // resets the input boxes to blank
+    $("#addTrainName").val("");
+    $("#addDestination").val("");
+    $("#addTrainTime").val("");
+    $("#addFrequency").val("");
+
 
 });
 
