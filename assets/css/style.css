@@ -1,1 +1,30 @@
 
+body {
+    background-image: url("../images/Locomotive.png");
+    background-size: cover;
+}
+
+.jumbotron {
+    background-image: url("../images/trainjumbo.jpg");
+    background-position: center;
+    color: white;
+}
+
+.lead {
+    font-size: 30px;
+}
+
+#footers {
+    background-image: url("../images/tracks.jpg");
+    background-position: bottom;
+}
+
+
+#headings {
+    background: #48403e;
+}
+
+footer {
+    color: white;
+    font-size: 40px;
+}
