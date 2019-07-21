@@ -53,7 +53,23 @@ $("#addInfo").on("click", function (event) {
 
 // at initial load and subsequent value chages, get a snapshot of the stored data
 // function to update page in real-time when the firebase database changes
-database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+
+    //store the value of firebase database child 
+    var trainNameEntry = childSnapshot.val().trainName;
+    var trainDestinationEntry = childSnapshot.val().trainDestination;
+    var trainTimeEntry = childSnapshot.val().trainTime;
+    var trainFrequencyEntry = childSnapshot.val().trainFrequency;
+
+    //use moment.js for time conversion
+
+    //put train information into html id updateInfo
+    $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td>");
+    // $("<tr>").append("<th>");
+    // $("<th>").attr("scope", "row");
+    // $("<th>").text(trainNameEntry);
+    // $("<th>").append("<td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td>")
+
 
     // if any error are experiencced log them to console
     //  function(errorObject) {
