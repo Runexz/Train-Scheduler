@@ -26,67 +26,71 @@
 
     <!-- create a table -->
     <div class="container">
-        <div class="container bg-primary text-white p-2">
-            <h4>Current Train Schedule</h4>
-        </div>
-        <div class="container border border-primary">
-            <table class="table">
-                <!-- header of the table columns -->
-                <thead>
-                    <tr>
-                        <th class="font-weight-bold" scope="col">Train Name</th>
-                        <th class="font-weight-bold" scope="col">Destination</th>
-                        <th class="font-weight-bold" scope="col">Frequency (min)</th>
-                        <th class="font-weight-bold" scope="col">Next Arrival</th>
-                        <th class="font-weight-bold" scope="col">Minutes Away</th>
-                    </tr>
-                </thead>
-                <!-- where the submitted info will be displayed -->
-                <tbody id="updateInfo">
-                    <tr>
-                        <th scope="row">Trenton Express</th>
-                        <td>Trenton</td>
-                        <td>25</td>
-                        <td>1735</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Oregon Trail</th>
-                        <td>Salem, Oregon</td>
-                        <td>3600</td>
-                        <td>1339</td>
-                        <td>1154</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Current Train Schedule</h4>
+            </div>
+            <div class="border border-primary">
+                <table class="table">
+                    <!-- header of the table columns -->
+                    <thead>
+                        <tr>
+                            <th class="font-weight-bold" scope="col">Train Name</th>
+                            <th class="font-weight-bold" scope="col">Destination</th>
+                            <th class="font-weight-bold" scope="col">Frequency (min)</th>
+                            <th class="font-weight-bold" scope="col">Next Arrival</th>
+                            <th class="font-weight-bold" scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <!-- where the submitted info will be displayed -->
+                    <tbody id="updateInfo">
+                        <tr>
+                            <th scope="row">Trenton Express</th>
+                            <td>Trenton</td>
+                            <td>25</td>
+                            <td>1735</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Oregon Trail</th>
+                            <td>Salem, Oregon</td>
+                            <td>3600</td>
+                            <td>1339</td>
+                            <td>1154</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <!-- create input cards for multiple entries -->
     <div class="container mt-3">
-        <div class="container bg-primary text-white p-2">
-            <h4>Add Train</h4>
-        </div>
-        <div class="container border border-primary">
-            <form>
-                <div class="form-group mt-2">
-                    <label for="trainName">Train Name</label>
-                    <input type="text" class="form-control" id="addTrainName" placeholder="Enter a Train Name">
-                </div>
-                <div class="form-group mt-2">
-                    <label for="destinationName">Destination</label>
-                    <input type="text" class="form-control" id="addDestination" placeholder="Enter a Destination">
-                </div>
-                <div class="form-group mt-2">
-                    <label for="trainTime">First Train Time (HH:mm - military time)</label>
-                    <input type="time" class="form-control" id="addTrainTime">
-                </div>
-                <div class="form-group mt-2">
-                    <label for="frequencyTime">Frequency (min)</label>
-                    <input type="text" class="form-control" id="addFrequency" placeholder="Enter a frequency">
-                </div>
-                <button id="addInfo" type="submit" class="btn btn-primary mb-3">Submit</button>
-            </form>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Add Train</h4>
+            </div>
+            <div class="container border border-primary">
+                <form>
+                    <div class="form-group mt-2">
+                        <label for="trainName">Train Name</label>
+                        <input type="text" class="form-control" id="addTrainName" placeholder="Enter a Train Name">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="destinationName">Destination</label>
+                        <input type="text" class="form-control" id="addDestination" placeholder="Enter a Destination">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="trainTime">First Train Time (HH:mm - military time)</label>
+                        <input type="time" class="form-control" id="addTrainTime">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="frequencyTime">Frequency (min)</label>
+                        <input type="text" class="form-control" id="addFrequency" placeholder="Enter a frequency">
+                    </div>
+                    <button id="addInfo" type="submit" class="btn btn-primary mb-3">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -102,7 +106,8 @@
         </div>
 
     </footer>
-
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js" type="text/javascript"></script>
