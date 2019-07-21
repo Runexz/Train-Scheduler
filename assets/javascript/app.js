@@ -62,6 +62,9 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
     var trainFrequencyEntry = childSnapshot.val().trainFrequency;
 
     //use moment.js for time conversion
+// unable to use moment will wait for TA assistance
+    // var currentTime = moment();
+    // console.log("The time now is: " + moment(currentTime).format("hh:mm a"));
 
     //put train information into html id updateInfo
     $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td>");
@@ -72,8 +75,7 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
 
     // if any error are experiencced log them to console
-    //  function(errorObject) {
-    //     console.log("the read failed: " + errorObject.code)
-    // }
+    },  function(errorObject) {
+        console.log("the read failed: " + errorObject.code)
 
 });
