@@ -29,8 +29,8 @@ $("#addInfo").on("click", function (event) {
     // get the train info from input and store it into a variable
     var trainNameEntry = $("#addTrainName").val().trim();
     var trainDestinationEntry = $("#addDestination").val().trim();
-    var trainTimeEntry = parseInt($("#addTrainTime").val().trim());
-    var trainFrequencyEntry = parseInt($("#addFrequency").val().trim());
+    var trainTimeEntry = $("#addTrainTime").val().trim();
+    var trainFrequencyEntry = $("#addFrequency").val().trim();
 
     // save the new input in a variable and push entries in Firebase.  
     var trainContent = {
@@ -62,12 +62,36 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
     var trainFrequencyEntry = childSnapshot.val().trainFrequency;
 
     //use moment.js for time conversion
-// unable to use moment will wait for TA assistance
+    // unable to use moment will wait for TA assistance
+
+    // first time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(trainTimeEntry, "hh:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
+    // current time
     var currentTime = moment();
-    console.log("The time now is: " + moment(currentTime).format("hh:mm A"));
+    console.log("The time now is: " + moment(currentTime).format("hh:mm a"));
+
+    // difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("Difference in Time: " + diffTime);
+
+    // time apart (the remainder)
+    var tRemainder = diffTime % trainFrequencyEntry;
+    console.log("Remainder: " + tRemainder);
+
+    //minutes until train arrives
+    var minutesTill = trainFrequencyEntry - tRemainder;
+    console.log("Minutes until train arrives: " + minutesTill);
+
+    // next train arrival
+    var nextTrain = moment().add(minutesTill, "minutes").format("hh:mm a");
+    console.log("Arrival time: " + nextTrain);
+
+
 
     //put train information into html id updateInfo
-    $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td>");
+    $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td><td>" + nextTrain + "</td><td>" + minutesTill + "</td></tr>");
     // $("<tr>").append("<th>");
     // $("<th>").attr("scope", "row");
     // $("<th>").text(trainNameEntry);
@@ -75,7 +99,7 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
 
     // if any error are experiencced log them to console
-    },  function(errorObject) {
-        console.log("the read failed: " + errorObject.code)
+}, function (errorObject) {
+    console.log("the read failed: " + errorObject.code)
 
 });
