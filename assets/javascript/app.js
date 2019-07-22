@@ -1,8 +1,5 @@
 
 
-console.log("hello world");
-
-
 // my web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyBeaeeRZRhQxOMbKmwcBok28_H9Meolyp8",
@@ -18,9 +15,6 @@ firebase.initializeApp(firebaseConfig);
 
 // create a variable to reference the database
 var database = firebase.database();
-
-
-var trainStatCount = 0;
 
 // when the submit button is clicked this function will run
 $("#addInfo").on("click", function (event) {
@@ -39,6 +33,7 @@ $("#addInfo").on("click", function (event) {
         trainTime: trainTimeEntry,
         trainFrequency: trainFrequencyEntry
     }
+    // push the data from var trainContent into firebase
     database.ref().push(trainContent);
     console.log("Train name " + trainContent.trainName);
 

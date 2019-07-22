@@ -3,27 +3,26 @@ body {
     background-image: url("../images/Locomotive.png");
     background-size: cover;
 }
-
+/* background image of a train */
 .jumbotron {
     background-image: url("../images/trainjumbo.jpg");
     background-position: center;
     color: white;
 }
-
+/* made the size of text larger of the sentence of main */
 .lead {
     font-size: 30px;
 }
-
+/* picture of train tracks but need to get the centered */
 #footers {
     background-image: url("../images/tracks.jpg");
     background-position: bottom;
 }
-
-
+/* background of the headings to be brown */
 #headings {
     background: #48403e;
 }
-
+/* color of text white and size bigger */
 footer {
     color: white;
     font-size: 40px;
