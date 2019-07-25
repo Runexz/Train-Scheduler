@@ -61,7 +61,7 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
     // first time (pushed back 1 year to make sure it comes before current time)
     var firstTimeConverted = moment(trainTimeEntry, "hh:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
+    console.log(firstTimeConverted); //brings back an object that has info inside
 
     // current time
     var currentTime = moment();
@@ -83,10 +83,19 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
     var nextTrain = moment().add(minutesTill, "minutes").format("hh:mm a");
     console.log("Arrival time: " + nextTrain);
 
-
+    // create a new row that is stored in a variable
+    var newRow = $("<tr>").append(
+        $("<td>").text(trainNameEntry),
+        $("<td>").text(trainDestinationEntry),
+        $("<td>").text(trainFrequencyEntry),
+        $("<td>").text(nextTrain),
+        $("<td>").text(minutesTill)
+    );
 
     //put train information into html id updateInfo
-    $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td><td>" + nextTrain + "</td><td>" + minutesTill + "</td></tr>");
+    $("#updateInfo > tbody").append(newRow);
+
+    // $("#updateInfo").append("<tr><td>" + trainNameEntry + "</td><td>" + trainDestinationEntry + "</td><td>" + trainFrequencyEntry + "</td><td>" + nextTrain + "</td><td>" + minutesTill + "</td></tr>");
     // $("<tr>").append("<th>");
     // $("<th>").attr("scope", "row");
     // $("<th>").text(trainNameEntry);
